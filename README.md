@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Healthcare App UI
+
+A sample healthcare application frontend built with Next.js, featuring appointment management and other healthcare-related functionalities. This application uses gRPC-web for efficient communication with backend services.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+- Protocol Buffers compiler (protoc)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd healthcare-app-ui
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Generate Protocol Buffer files:
+
+```bash
+npm run generate-proto
+# or
+yarn generate-proto
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+healthcare-app-ui/
+├── proto/                 # Proto definition files
+├── src/
+│   ├── app/               # Next.js application routes
+│   ├── components/        # React components
+│   ├── generated/         # Auto-generated Proto/gRPC code
+│   └── services/          # Service layer for API communication
+├── scripts/               # Utility scripts (e.g., proto generation)
+└── public/                # Static assets
+```
 
-## Learn More
+## Technology Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: Next.js
+- **UI Components**: React
+- **API Communication**: gRPC-web
+- **Data Definition**: Protocol Buffers
+- **Styling**: CSS Modules/Tailwind CSS (as applicable)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Proto/gRPC Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses Protocol Buffers and gRPC-web for communication with backend services. The proto files define the service contracts and are used to generate TypeScript definitions.
 
-## Deploy on Vercel
+To update the proto definitions:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Modify the .proto files in the `/proto` directory
+2. Run the generation script:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run generate-proto
+```
+
+The script will:
+- Generate JavaScript files with CommonJS imports
+- Generate TypeScript definitions for gRPC web clients
+- Place all generated files in the `/src/generated` directory
+
+## Development
+
+### Available Commands
+
+- `npm run dev` - Start development server
+- `npm run build` - Build the application
+- `npm run start` - Start production server
+- `npm run generate-proto` - Generate files from proto definitions
+- `npm run lint` - Run linting
+- `npm run test` - Run tests (if configured)
+
+## Deployment
+
+The application can be deployed to any platform that supports Next.js applications, such as Vercel, Netlify, or a custom server.
+
+```bash
+npm run build
+npm run start
+```
+
+

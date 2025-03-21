@@ -6,22 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-proto": "chmod +x ./scripts/generate-proto.sh && ./scripts/generate-proto.sh"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.2"
+    "@improbable-eng/grpc-web": "^0.15.0",
+    "grpc-tools": "^1.13.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@eslint/eslintrc": "^3",
+    "@grpc/grpc-js": "^1.13.0",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/google-protobuf": "^3.15.12",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
-    "@eslint/eslintrc": "^3"
+    "google-protobuf": "^3.21.4",
+    "grpc-web": "^1.5.0",
+    "postcss": "latest",
+    "protoc-gen-grpc-web": "^1.5.0",
+    "protoc-gen-js": "^3.21.4-4",
+    "tailwindcss": "latest",
+    "typescript": "latest"
   }
 }
