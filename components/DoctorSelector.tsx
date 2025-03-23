@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 // Mock data for doctors - in a real application, this would come from an API
 const MOCK_DOCTORS = [
@@ -16,15 +16,6 @@ interface DoctorSelectorProps {
 
 export default function DoctorSelector({ onDoctorSelect }: DoctorSelectorProps) {
   const [selectedDoctor, setSelectedDoctor] = useState<number | ''>('');
-
-  // Auto-select first doctor on component mount
-  useEffect(() => {
-    if (MOCK_DOCTORS.length > 0) {
-      const firstDoctorId = MOCK_DOCTORS[0].id;
-      setSelectedDoctor(firstDoctorId);
-      onDoctorSelect(firstDoctorId);
-    }
-  }, [onDoctorSelect]);
 
   const handleDoctorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const doctorId = parseInt(e.target.value);
